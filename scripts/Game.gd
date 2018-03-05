@@ -7,11 +7,13 @@ onready var grave = $Grave
 onready var time_left = $TimeLeft
 onready var player = $Player
 onready var timer = $Timer
+onready var score = $Score
 
 var last_spawn_position
 var last_has_axe = false
 var last_axe_right = false
 var dead = false
+var score_amount = 0
 
 var trunks = []
 
@@ -19,6 +21,7 @@ var trunks = []
 func _ready():
 	last_spawn_position = first_trunk_position.position
 	_spawn_first_trunks()
+	score.text = str(score_amount)
 
 func _process(delta):
 	if dead:
@@ -71,6 +74,9 @@ func punch_tree(from_right):
 	time_left.value += 0.25
 	if time_left.value > time_left.max_value:
 		time_left.value = time_left.max_value
+	
+	score_amount += 1
+	score.text = str(score_amount)
 
 
 func die():

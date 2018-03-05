@@ -1,6 +1,6 @@
 extends Node2D
 
-var speed = 750
+var speed = 1500
 var direction = 1
 
 onready var sprite = $Sprite

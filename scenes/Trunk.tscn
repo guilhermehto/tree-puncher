@@ -1,22 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://sprites/trunk_mid.png" type="Texture" id=1]
-[ext_resource path="res://sprites/axe_iron.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Trunk.gd" type="Script" id=1]
+[ext_resource path="res://sprites/trunk_mid.png" type="Texture" id=2]
+[ext_resource path="res://sprites/axe_iron.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 47.6726
 
-[node name="Trunk" type="Node2D"]
+[node name="Trunk" type="Node2D" index="0"]
 
 scale = Vector2( 2, 2 )
-_sections_unfolded = [ "Transform" ]
+script = ExtResource( 1 )
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 z_index = 1
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="Left Axe" type="Area2D" parent="." index="1"]
@@ -37,7 +39,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="Left Axe" index="0"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left Axe" index="1"]
 
@@ -61,7 +63,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="Right Axe" index="0"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 flip_h = true
 _sections_unfolded = [ "Offset" ]
 

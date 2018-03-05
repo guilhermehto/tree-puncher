@@ -6,7 +6,7 @@
 [ext_resource path="res://sprites/dirt_grass.png" type="Texture" id=4]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 trunk_scene = ExtResource( 2 )

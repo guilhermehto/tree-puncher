@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 radius = 47.6726
 
-[node name="Trunk" type="Node2D" index="0"]
+[node name="Trunk" type="Node2D"]
 
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
@@ -21,7 +21,7 @@ z_index = 1
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="Left Axe" type="Area2D" parent="." index="1"]
+[node name="LeftAxe" type="Area2D" parent="." index="1"]
 
 editor/display_folded = true
 position = Vector2( -80, 0 )
@@ -37,15 +37,15 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Left Axe" index="0"]
+[node name="Sprite" type="Sprite" parent="LeftAxe" index="0"]
 
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Axe" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftAxe" index="1"]
 
 shape = SubResource( 1 )
 
-[node name="Right Axe" type="Area2D" parent="." index="2"]
+[node name="RightAxe" type="Area2D" parent="." index="2"]
 
 editor/display_folded = true
 position = Vector2( 80, 0 )
@@ -61,14 +61,23 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Right Axe" index="0"]
+[node name="Sprite" type="Sprite" parent="RightAxe" index="0"]
 
 texture = ExtResource( 3 )
 flip_h = true
 _sections_unfolded = [ "Offset" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Axe" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightAxe" index="1"]
 
 shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 
